@@ -1,0 +1,29 @@
+.notifications {
+  position: fixed;
+  padding: 90px 12px;
+  z-index: 2000;
+
+  &.left-top {
+    left: 0;
+    top: 0;
+    float: left;
+  }
+
+  &.right-top {
+    right: 0;
+    top: 0;
+    float: right;
+  }
+
+  &.left-bottom {
+    left: 0;
+    bottom: 0;
+    float: left;
+  }
+
+  &.right-bottom {
+    right: 0;
+    bottom: 0;
+    float: right;
+  }
+}

@@ -1,0 +1,185 @@
+@import '../../theme/theme.scss';
+
+
+.explore {
+  display: flex;
+  flex-direction: column;
+
+  .main-header {
+    position: fixed;
+    top: 80px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.17);
+    z-index: 50;
+    @include themify() {
+      background-color: rgba(themed('primaryBgColor'), 0.8);
+    }
+
+    .left-padding {
+      width: 250px;
+      margin-right: 15px;
+    }
+    
+    .right-padding {
+      width: 200px;
+      margin-left: 15px;
+    }
+
+    .menu {
+      flex: 1;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      max-width: 860px;
+
+      .menu-item {
+        font-size: 18px;
+        font-weight: bold;
+        margin: 5px 20px;
+        cursor: pointer;
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+
+        .underline {
+          display: none;
+          height: 3px;
+          width: 100%;
+          background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+        }
+
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &.active {
+          @include themify() {
+            color: themed('primaryColor');
+          }
+
+          .underline {
+            display: block;
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1400px) {
+      .right-padding {
+        display: none;
+      }
+    }
+  
+    @media (max-width: 1170px) {
+      .left-padding {
+        display: none;
+      }
+    }
+  }
+
+  .page {
+    .main-content {
+      padding-top: 10px;
+
+      .header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 10px;
+
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          @include themify() {
+            color: themed('primaryColor');
+          }
+        }
+
+        .view-button {
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+
+      .profile-list {
+        .profiles .item {
+          position: relative;
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+          margin-top: 8px;
+          padding: 18px 14px;
+          border-radius: 4px;
+          @include themify() {
+            background-color: themed('secondaryBgActiveColor');
+          }
+
+          .main {
+            display: flex;
+            flex-direction: row;
+
+            .info {
+              display: flex;
+              flex-direction: row;
+              flex: 1;
+              min-width: 0;
+              flex-direction: column;
+              justify-content: center;
+              margin-left: 10px;
+
+              .name {
+                font-size: 16px;
+                font-weight: bold;
+                line-height: 19px;
+                @include themify() {
+                  color: themed('primaryColor');
+                }
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                min-width: 0;
+              }
+
+              .username {
+                font-size: 16px;
+                line-height: 19px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+                min-width: 0;
+              }
+            }
+          }
+
+          .tools {
+            .view {
+              font-size: 16px;
+              font-weight: bold;
+              @include themify() {
+                color: themed('primaryColor');
+              }
+              width: 80px;
+              text-align: center;
+              padding: 10px;
+              cursor: pointer;
+
+              &:hover {
+                text-decoration: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

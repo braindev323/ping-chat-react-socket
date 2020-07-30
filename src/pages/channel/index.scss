@@ -1,0 +1,152 @@
+@import '../../theme/theme.scss';
+
+
+.channel {
+  display: flex;
+  flex-direction: column;
+
+  .main-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    padding: 48px 0;
+    z-index: 10;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(color('darkGrey'), 0.4), rgba(color('darkGrey'), 1));
+      opacity: 0.8;
+      z-index: -10;
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      color: directTheme('dark', 'primaryColor');
+      margin-top: 10px;
+    }
+    
+    .location {
+      font-size: 20px;
+      color: directTheme('dark', 'secondaryColor');
+      margin-top: 6px;
+    }
+
+    .btn-main {
+      margin-top: 18px;
+    }
+  }
+  
+  .page {
+    .detail {
+      .main {
+        display: flex;
+        flex-direction: row;
+
+        @include themify() {
+          color: themed('primaryColor');
+        }
+
+        .info {
+          display: flex;
+          flex-direction: row;
+          flex: 1;
+          min-width: 0;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 10px;
+
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 19px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+          }
+
+          .username {
+            font-size: 16px;
+            line-height: 19px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+          }
+        }
+      }
+
+      .description {
+        font-size: 16px;
+        margin-top: 8px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+      }
+
+      .line {
+        display: flex;
+        flex-direction: row;
+        margin-top: 14px;
+
+        .icon {
+          margin-right: 6px;
+
+          @include themify() {
+            fill: themed('secondaryColor');
+          }
+        }
+
+        .link {
+          color: color('blue');
+        }
+
+        .label {
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+    }
+
+    .channels {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, 60px);
+      grid-gap: 10px;
+      margin-top: 12px;
+      .hot-channel {
+        display: flex;
+        flex-direction: column;
+
+        .title {
+          font-size: 12px;
+          min-height: 34px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          overflow: hidden;
+          text-align: center;
+          margin-top: 4px;
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+    }
+  }
+}

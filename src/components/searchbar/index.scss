@@ -1,0 +1,34 @@
+@import '../../theme/theme.scss';
+
+.searchbar {
+  display: flex;
+  flex-direction: row;
+  height: 24px;
+  align-items: center;
+
+  .icon {
+    margin-right: 0 !important;
+
+    @include themify() {
+      fill: themed('secondaryColor');
+    }
+  }
+
+  input {
+    max-width: 130px;
+    height: 1.5em;
+    padding: 0 6px;
+    font-size: 16px;
+    border: 0;
+    background: transparent;
+    @include themify() {
+      color: themed('secondaryColor');
+    }
+
+    &:focus {
+      border: 0;
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}

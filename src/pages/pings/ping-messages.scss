@@ -1,0 +1,282 @@
+@import "../../theme/theme.scss";
+
+.ping-messages {
+  @include themify() {
+    background: themed("darkGreyColor");
+  }
+
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.17);
+  box-sizing: border-box;
+  height: calc(100vh - 82px - 60px - 80px);
+  padding: 15px 18px;
+  position: relative;
+  padding-bottom: 98px;
+  padding-right: 0;
+
+  .msg-content {
+    padding-right: 15px;
+    overflow: auto;
+    height: 100%;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    ul {
+      padding-left: 0;
+      margin-top: auto;
+      display: flex;
+      flex-direction: column-reverse;
+
+      .date-show {
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        font-family: Lato;
+        text-align: center;
+
+        @include themify() {
+          color: themed("primaryColor");
+        }
+      }
+    }
+
+    .line-msg {
+      margin-bottom: 15px;
+      width: 100%;
+      display: inline-flex;
+
+
+
+      img {
+        width: 45px;
+        height: 45px;
+        margin-right: 10px;
+        border-radius: 50%;
+      }
+
+      .info {
+
+        position: relative;
+
+        .video-container-overlay {
+          border: 10px solid;
+
+          @include themify() {
+            border-color: themed("othersMessageboxBgColor");
+          }
+
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          border-end-end-radius: 8px;
+          width: 520px;
+          height: 276px;
+          position: relative;
+        }
+
+        img.image-render {
+          width: 522px;
+          height: 270px;
+          border: 10px solid;
+          border-color: rgba($color: #BDBDBD, $alpha: 0.2);
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          border-radius: 4px;
+          border-end-end-radius: 8px;
+          object-fit: cover;
+          @include themify() {
+            background-color: themed("othersMessageboxBgColor");
+          }
+        }
+
+        .audio-render {
+          width: 378px;
+          height: 50px;
+          background-color: #4e5c67;
+          border-radius: 4px;
+          position: relative;
+          justify-content: center;
+
+          @include themify() {
+            background-color: themed("othersMessageboxBgColor");
+          }
+        }
+
+        .text {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 13px;
+          margin: 0;
+          font-family: Lato;
+          padding: 15px;
+          border-radius: 4px;
+          box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.2);
+          display: inline-block;
+
+          @include themify() {
+            color: themed("primaryColor");
+            background-color: themed("othersMessageboxBgColor");
+          }
+        }
+
+        .text.web-preview {
+          width: 378px;
+          padding: 0px;
+          text-align: left;
+          cursor: pointer;
+          p {
+            margin-bottom: 0 !important;
+          }
+
+          .web-image {
+            width: 100%;
+            border-radius: 0;
+            height: 190px;
+
+            object-fit: cover;
+          }
+
+          .web-preview-inner {
+            padding: 10px;
+            padding-bottom: 20px;
+            margin-bottom: 0;
+            line-height: 18px;
+            font-size: 18px;
+
+            .web-description-wrap {
+              padding: 15px 10px;
+              background-color: rgba(0, 0, 0, 0.1);
+
+              .web-title {
+                font-weight: bold;
+
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              }
+
+              .web-description {
+                color: rgba($color: #ffffff, $alpha: 0.6);
+                padding-top: 15px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 2;
+                -webkit-box-orient: vertical;
+              }
+            }
+
+            .web-link {
+              padding-top: 10px;
+              color: #1592E5;
+              cursor: text;
+            }
+          }
+
+
+        }
+
+        .dot-menu {
+          position: absolute;
+          top: -6px;
+          right: -25px;
+          width: 24px;
+          height: 45px;
+
+          img {
+            width: 24px;
+            height: 24px;
+            margin-right: 0;
+          }
+        }
+
+        .dot-edit-pan {
+          position: absolute;
+          top: 20px;
+          right: -15px;
+          font-size: 14px;        
+          width: 180px;
+          @include themify() {
+            background-color: themed("primaryBgColor");
+            color: themed("primary");
+            box-shadow: 5px 5px 8px themed("primaryBgColor");
+          }
+          
+          padding: 15px;
+          text-align: left;
+          border-radius: 3px;
+          z-index: 10;
+
+          div {
+            line-height: 27px;
+            cursor: pointer;
+          }
+        }
+
+        .dtime {
+          font-size: 14px;
+          font-family: Lato;
+          font-weight: 400;
+          line-height: 13px;
+          color: #868a8d;
+          margin-top: 10px;
+        }
+      }
+
+
+    }
+
+    .reply {
+      display: inline-block;
+      text-align: right;
+      padding-right: 10px;
+
+      .audio-info {
+        height: 91px;
+        padding-top: 49px;
+      }
+
+      .text {
+        @include themify() {
+          background-color: themed("myMessageboxBgColor") !important;
+        }
+      }
+
+      img.image-render {
+        @include themify() {
+          background-color: themed("myMessageboxBgColor") !important;
+        }
+      }
+
+      .video-container-overlay {
+        @include themify() {
+          border-color: themed("myMessageboxBgColor") !important;
+        }
+      }
+
+      .audio-render {
+        position: absolute !important;
+
+        @include themify() {
+          background-color: themed("myMessageboxBgColor") !important;
+        }
+
+        .reply-progress {
+          right: 247px;
+        }
+      }
+
+      .video-reply-progress {
+        right: 440px;
+        width: 100%;
+      }
+
+    }
+
+    .pan-overflow {
+      right: -195px !important;
+    }
+  }
+
+}

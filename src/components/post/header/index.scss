@@ -1,0 +1,83 @@
+@import '../../../theme/theme.scss';
+
+
+.post {
+  .post-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .profile {
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+
+      @include themify() {
+        color: themed('primaryColor');
+      }
+
+      .info {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        .name {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+        }
+
+        .username {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+        }
+      }
+    }
+
+    .post-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .category {
+        @include themify() {
+          color: themed('primaryColor');
+        }
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  &.has-cover {
+    .post-header {
+      .profile {
+        color: directTheme('dark', 'primaryColor');
+      }
+
+      .post-info {
+        .category {
+          color: directTheme('dark', 'primaryColor');
+        }
+      }
+    }
+  }
+}

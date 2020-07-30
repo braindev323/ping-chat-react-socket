@@ -1,0 +1,68 @@
+@import "../../theme/theme.scss";
+
+.pings-page {
+  .layout-main {
+    .pings-bar {
+      width: 40%;
+      float: left;
+      padding: 10px;
+      .add_contact {
+        color: white;
+      }
+      .search {
+        height: 75px;
+        padding: 10px;
+        margin-bottom: 10px;
+        @include themify() {
+          background-color: themed("primaryBgPingActiveColor");
+        }
+      }
+      .ping-item {
+        height: 75px;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        @include themify() {
+          background-color: themed("primaryBgPingActiveColor");
+          color: themed("primaryColor");
+        }
+        .ping-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          .avatar {
+            img.user {
+              width: 45px;
+              height: 45px;
+            }
+            .verified {
+              position: absolute;
+              right: -5px;
+              bottom: -5px;
+            }
+          }
+          .message {
+            padding-left: 10px;
+            p {
+              margin-bottom: 0px;
+              .active {
+                margin-left: 10px;
+                @include themify() {
+                  color: color("green");
+                }
+              }
+              .inactive {
+                margin-left: 10px;
+              }
+            }
+          }
+        }
+        .unread-message {
+          margin-right: 15px;
+        }
+      }
+    }
+  }
+}

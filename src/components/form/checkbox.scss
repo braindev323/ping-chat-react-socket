@@ -1,0 +1,16 @@
+.checkbox {
+  cursor: pointer;
+  
+  &.form-check {
+    padding-left: 2rem;
+
+    .form-check-input {
+      margin-top: 0;
+      margin-left: -2rem;
+    }
+
+    .form-check-label {
+      cursor: pointer;
+    }
+  }
+}

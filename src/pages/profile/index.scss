@@ -1,0 +1,394 @@
+@import '../../theme/theme.scss';
+
+
+.profile {
+  display: flex;
+  flex-direction: column;
+
+  .left-content {
+    .profile {
+      display: flex;
+      flex-direction: row;
+
+      .info {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        .name {
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 17px;
+          @include themify() {
+            color: themed('primaryColor');
+          }
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+        }
+
+        .username {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+        }
+      }
+    }
+  }
+
+  .main-header {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    align-items: center;
+    padding-top: 48px;
+    z-index: 10;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(color('darkGrey'), 0.4), rgba(color('darkGrey'), 1));
+      opacity: 0.8;
+      z-index: -10;
+    }
+
+    .avatar-group {
+      position: relative;
+      .icons {
+        position: absolute;
+        left: 22px;
+        bottom: 5px;
+        width: 156px;
+        height: 28px;
+
+        .icon-level {
+          position: absolute;
+          right: 0;
+          bottom: 0;
+          fill: color('white');
+        }
+      }
+    }
+
+    .name {
+      font-size: 24px;
+      font-weight: bold;
+      color: directTheme('dark', 'primaryColor');
+      margin-top: 10px;
+    }
+    
+    .location {
+      font-size: 20px;
+      color: directTheme('dark', 'secondaryColor');
+      margin-top: 6px;
+    }
+
+    .menu {
+      display: flex;
+      flex-direction: row;
+      padding-top: 35px;
+
+      .menu-item {
+        font-size: 24px;
+        color: directTheme('dark', 'primaryColor');
+        margin: 5px 20px;
+        cursor: pointer;
+
+        .underline {
+          display: none;
+          height: 3px;
+          width: 100%;
+          background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+        }
+
+        &.active {
+          .underline {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+
+  .page {
+    .detail {
+      .main {
+        display: flex;
+        flex-direction: row;
+
+        @include themify() {
+          color: themed('primaryColor');
+        }
+
+        .btn-edit{
+          margin-left: 15px;
+          @include themify() {
+            fill: themed('primaryColor');
+          }
+        }
+
+        .info {
+          display: flex;
+          flex-direction: row;
+          flex: 1;
+          min-width: 0;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 10px;
+
+          .name {
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 19px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+          }
+
+          .username {
+            font-size: 16px;
+            line-height: 19px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+          }
+        }
+      }
+
+      .description {
+        font-size: 16px;
+        margin-top: 8px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+      }
+
+      .line {
+        display: flex;
+        flex-direction: row;
+        margin-top: 14px;
+
+        .icon {
+          margin-right: 6px;
+
+          @include themify() {
+            fill: themed('secondaryColor');
+          }
+        }
+
+        .link {
+          color: color('blue');
+        }
+
+        .label {
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+    }
+
+    .reading {
+      margin-top: 12px;
+
+      .item {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        background-position: center; 
+        background-repeat: no-repeat;
+        background-size: cover;
+        margin-top: 8px;
+        padding: 22px 14px 14px 14px;
+        border-radius: 4px;
+        z-index: 10;
+      
+        &:before {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background-image: linear-gradient(to bottom, rgba(color('darkGrey'), 0.4), rgba(color('darkGrey'), 1));
+          border-radius: 4px;
+          opacity: 0.8;
+          z-index: -10;
+        }
+
+        .main {
+          display: flex;
+          flex-direction: row;
+
+          .info {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            min-width: 0;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+
+            .name {
+              font-size: 16px;
+              font-weight: bold;
+              line-height: 19px;
+              color: directTheme('dark', 'primaryColor');
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              min-width: 0;
+            }
+
+            .username {
+              font-size: 16px;
+              line-height: 19px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              min-width: 0;
+            }
+          }
+        }
+
+        .tools {
+          display: flex;
+          flex-direction: row;
+          margin-top: 20px;
+
+          .icon {
+            fill: directTheme('dark', 'primaryColor');
+            margin-right: 8px;
+            cursor: pointer;
+          }
+        }
+
+        .content {
+          display: flex;
+          flex-direction: column;
+          margin-top: 12px;
+          max-width: 700px;
+
+          .title {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-end;
+
+            .about {
+              font-size: 20px;
+              font-weight: bold;
+              color: directTheme('dark', 'primaryColor');
+              margin: 0 12px 0 0;
+            }
+
+            .join {
+              font-size: 14px;
+              color: directTheme('dark', 'secondaryColor');
+            }
+          }
+
+          .description {
+            font-size: 14px;
+            color: directTheme('dark', 'secondaryColor');
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            overflow: hidden;
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    .readers {
+      margin-top: 12px;
+
+      .item {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 8px;
+        padding: 18px 14px;
+        border-radius: 4px;
+        @include themify() {
+          background-color: themed('secondaryBgActiveColor');
+        }
+
+        .main {
+          display: flex;
+          flex-direction: row;
+
+          .info {
+            display: flex;
+            flex-direction: row;
+            flex: 1;
+            min-width: 0;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 10px;
+
+            .name {
+              font-size: 16px;
+              font-weight: bold;
+              line-height: 19px;
+              @include themify() {
+                color: themed('primaryColor');
+              }
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              min-width: 0;
+            }
+
+            .username {
+              font-size: 16px;
+              line-height: 19px;
+              overflow: hidden;
+              white-space: nowrap;
+              text-overflow: ellipsis;
+              min-width: 0;
+            }
+          }
+        }
+
+        .tools {
+          .read-button {
+            font-size: 16px;
+            font-weight: bold;
+            @include themify() {
+              color: themed('primaryColor');
+            }
+            width: 80px;
+            text-align: center;
+            padding: 10px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+  }
+}

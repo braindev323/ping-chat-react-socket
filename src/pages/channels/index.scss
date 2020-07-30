@@ -1,0 +1,112 @@
+@import '../../theme/theme.scss';
+
+.channels {
+  .hot-channels{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, 70px);
+    grid-gap: 10px;
+    margin-top: 10px;
+
+    .hot-channel {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+
+      .name {
+        font-size: 12px;
+        min-height: 34px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        text-align: center;
+        margin-top: 4px;
+
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+      }
+    }
+  }
+
+  .list-units {
+    .icon {
+      @include themify() {
+        fill: themed('secondaryColor');
+      }
+    }
+
+    .dropdown {
+      width: 160px;
+
+      .dropdown-wrapper {
+        .item {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  .channel-list{
+    display: grid;
+    width: 100%;
+    margin-top: 10px;
+    grid-gap: 8px;
+    grid-template-columns: repeat( auto-fill, 100px);
+  }
+
+  .channel-box {
+    display: flex;
+    flex-direction: column;
+
+    .wrapper {
+      position: relative;
+      cursor: pointer;
+
+      .logo {
+        height: 100px;
+        background-color: white;
+        border-radius: 2px;
+        background-size: contain;
+      }
+
+      .mask {
+        display: none;
+        position: absolute;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(color('darkGrey'), 0.5);
+        
+        .icon {
+          @include themify() {
+            fill: themed('primaryColor');
+          }
+        }
+      }
+
+      &:hover .mask, .mask.show {
+        display: flex;
+      }
+    }
+
+    .name {
+      display: -webkit-box;
+      text-align: center;
+      font-size: 12px;
+      height: 36px;
+      margin-top: 4px;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      overflow: hidden;
+
+      @include themify() {
+        color: themed('secondaryColor');
+      }
+    }
+  }
+}

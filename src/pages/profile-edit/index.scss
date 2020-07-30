@@ -1,0 +1,266 @@
+@import "../../theme/theme.scss";
+
+.profile-edit {
+  @include themify() {
+    color: themed("secondaryColor");
+  }
+  .input-text{
+    @include themify() {
+      background-color: themed("primaryBgActiveColor");
+      color: themed("primaryColor") ;
+      border: 1px solid themed("primaryBgActiveColor");
+    }
+    padding: 3px 12px;
+  }
+  .banner {
+    padding: 10px 39px 10px 30px;
+    @include themify() {
+      background-color: themed("secondaryBgActiveColor");
+    }
+    .btn-actions {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 24px;
+      @include themify() {
+        color: themed("secondaryColor");
+      }
+      font-family: Lato;
+      font-size: 22px;
+      font-weight: 700;
+      &:hover {
+        cursor: pointer;
+      }
+      .icon {
+        margin-right: 7px;
+        @include themify() {
+          fill: themed("secondaryColor");
+        }
+      }
+    }
+    .btn-edit {
+      margin-right: 0;
+      float: right;
+    }
+  }
+  .content {
+    margin: 15px 0;
+    width: 100%;
+    .profile-ctn {
+      width: 850px;
+      margin: 0 auto;
+      overflow: hidden;
+      .actions {
+        width: 45px;
+        text-align: left;
+        float: left;
+        .btn-back {
+          cursor: pointer;
+          @include themify() {
+            background-color: rgba(themed("secondaryBgActiveColor"), 0.8);
+            color: themed("primaryColor");
+          }
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          text-align: center;
+          align-items: center;
+          display: inline-flex;
+          svg {
+            margin: 0 auto;
+            @include themify() {
+              fill: themed("primaryColor");
+            }
+          }
+        }
+      }
+      .info {
+        width: calc(100% - 45px);
+        float: right;
+        .uploads {
+          width: 100%;
+          overflow: hidden;
+          position: relative;
+          .bg-cover {
+            width: 100%;
+            height: 100%;
+            display: inline-flex;
+            align-items: center;
+            cursor: pointer;
+            img {
+              width: 100%;
+              position: absolute;
+              z-index: 0;
+            }
+            .upload-title {
+              width: 100%;
+              position: relative;
+              z-index: 1;
+              // @include themify() {
+              //   background-color: rgba(themed("inputboxBgColor"), 0.8);
+              // }
+              background-color: rgba(0, 0, 0, 0.7);
+              height: 100%;
+              display: inline-flex;
+              align-items: center;
+              .description {
+                width: 100%;
+                text-align: center;
+              }
+            }
+          }
+          .text {
+            @include themify() {
+              color: themed("secondaryColor");
+            }
+            font-family: Lato;
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 7px;
+            text-align: center;
+            width: 100%;
+          }
+          .upload-bg {
+            position: relative;
+            width: 444px;
+            height: 227px;
+            float: left;
+            display: inline-flex;
+            align-items: center;
+            .upload-title {
+              width: 100%;
+            }
+          }
+          .upload-avatar {
+            width: calc(100% - 444px);
+            float: left;
+            text-align: center;
+            height: 227px;
+            display: inline-flex;
+            align-items: center;
+            .up-avt {
+              display: inline-flex;
+              align-items: center;
+              width: 200px;
+              height: 200px;
+              margin: 0 auto;
+              border-radius: 50%;
+              position: relative;
+              .bg-cover {
+                border-radius: 50%;
+                position: relative;
+                img {
+                  border-radius: 50%;
+                }
+                .up-avt-ctn {
+                  display: inline-block;
+                  text-align: center;
+                  width: 100%;
+                  // @include themify() {
+                  //   background-color: rgba(themed("inputboxBgColor"), 0.8);
+                  // }
+                  background-color: rgba(0, 0, 0, 0.7);
+                  display: inline-flex;
+                  align-items: center;
+                  height: 100%;
+                  border-radius: 50%;
+                  z-index: 2;
+                  text-align: center;
+                  width: 100%;
+                  .description {
+                    width: 100%;
+                    text-align: center;
+                    .text {
+                      text-align: center;
+                      width: 100% !important;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .write-description {
+          margin: 24px 0;
+          position: relative;
+          display: inline-flex;
+          width: 100%;
+          margin-top: 10px;
+          padding: 8px;
+          border-radius: 4px;
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.24);
+          @include themify() {
+            background-color: themed("primaryBgColor");
+          }
+          textarea {
+            border: 0;
+            width: 100%;
+            padding: 4px 8px;
+            resize: none;
+            @include themify() {
+              background-color: themed("primaryBgActiveColor");
+              color: themed("primaryColor");
+            }
+          }
+          a {
+            display: inline-block;
+            width: 40px;
+            text-align: center;
+            svg {
+              @include themify() {
+                fill: themed("primaryColor");
+              }
+            }
+          }
+        }
+
+        .contact {
+          .line {
+            margin-bottom: 7px;
+            display: flex;
+            align-items: center;
+            .lb-location{
+              font-weight: 700;
+              font-family: Lato;
+            }
+            .icon {
+              margin: 0 10px;
+              @include themify() {
+                fill: themed("primaryColor");
+              }
+              &:first-child {
+                margin-left: 0px;
+              }
+            }
+          }
+        }
+        .photos {
+          .icon {
+            margin: 0 10px;
+            @include themify() {
+              fill: themed("primaryColor");
+            }
+            &:first-child {
+              margin-left: 0px;
+            }
+          }
+          .list-photos {
+            margin-top: 15px;
+            .photo-item {
+              width: 100px;
+              margin-right: 10px;
+              float: left;
+              margin-bottom: 15px;
+              img {
+                width: 100px;
+                height: 100px;
+              }
+              a {
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

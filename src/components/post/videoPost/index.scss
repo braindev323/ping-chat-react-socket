@@ -1,0 +1,126 @@
+@import '../../../theme/theme.scss';
+
+@mixin full {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.post.post-video {
+  .post-wrapper {
+    @include full;
+
+    .post-content {
+      @include full;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      z-index: 10;
+      pointer-events: none;
+
+      .video-button {
+        @include full;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        pointer-events: auto;
+
+        .icon {
+          cursor: pointer;
+          fill: directTheme('dark', 'primaryColor');
+        }
+      }
+
+      &.playing {
+        margin-bottom: 35px;
+      }
+    }
+
+    .video-preview {
+      border-radius: 4px;
+      overflow: hidden;
+
+      .content {
+        border-radius: 4px;
+      }
+    }
+
+    .image-wrapper {
+      @include full;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-image: linear-gradient(to bottom, rgba(color('darkGrey'), 0.4), rgba(color('darkGrey'), 1));
+        opacity: 0.8;
+        border-radius: 4px;
+      }
+
+      .content {
+        border-radius: 4px;
+      }
+    }
+
+    .post-header {
+      pointer-events: auto;
+      
+      .profile {
+        color: directTheme('dark', 'primaryColor');
+      }
+
+      .post-info {
+        .category {
+          color: directTheme('dark', 'primaryColor');
+        }
+
+        .icon {
+          fill: directTheme('dark', 'primaryColor');
+        }
+      }
+    }
+
+    .main {
+      pointer-events: auto;
+
+      .icon {
+        fill: directTheme('dark', 'primaryColor');
+      }
+      
+      .tools {
+        .rate-count {
+          color: directTheme('dark', 'primaryColor');
+        }
+
+        .gammatag {
+          background-color: directTheme('dark', 'primaryBgActiveColor');
+
+          .gamma {
+            fill: directTheme('dark', 'primaryColor');
+          }
+
+          .tag-name {
+            color: directTheme('dark', 'primaryColor');
+          }
+        }
+      }
+
+      .top .title {
+        color: directTheme('dark', 'primaryColor');
+      }
+
+      .description {
+        color: directTheme('dark', 'secondaryColor');
+      }
+
+      .comments .text {
+        color: directTheme('dark', 'primaryColor');
+      }
+    }
+  }
+}

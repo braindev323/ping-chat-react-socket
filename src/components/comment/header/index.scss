@@ -1,0 +1,123 @@
+@import "../../../theme/theme.scss";
+
+.comment {
+  .comment-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .profile {
+      display: flex;
+      flex-direction: row;
+      width: 100%;
+      cursor: pointer;
+
+      @include themify() {
+        color: themed("primaryColor");
+      }
+
+      .info {
+        display: flex;
+        flex-direction: row;
+        // flex: 1;
+        min-width: 0;
+        // flex-direction: column;
+        // justify-content: center;
+        margin-left: 10px;
+        width: 100%;
+        & > svg,
+        & > div {
+          margin-right: 10px;
+        }
+
+        .name {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+          font-weight: bold;
+        }
+
+        .username {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+          @include themify() {
+            color: themed("secondaryColor");
+          }
+        }
+
+        .reply {
+          font-size: 14px;
+          line-height: 17px;
+        }
+      }
+      .comment-message {
+        font-size: 13px;
+        line-height: 16px;
+        display: flex;
+        flex-direction: row;
+        min-width: 0;
+        margin-left: 10px;
+        width: 100%;
+        margin-top: 5px;
+        @include themify() {
+          color: themed("secondaryColor");
+        }
+      }
+
+      .comment-input {
+        margin-left: 10px;
+        margin-top: 5px;
+        .comment {
+          border: 0;
+          padding: 4px 8px;
+          @include themify() {
+            background-color: themed("primaryBgActiveColor");
+            color: themed("primaryColor");
+          }
+        }
+      }
+    }
+
+    .comment-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .category {
+        @include themify() {
+          color: themed("primaryColor");
+        }
+        font-size: 20px;
+        font-weight: bold;
+        margin-right: 3px;
+      }
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  &.has-cover {
+    .comment-header {
+      .profile {
+        color: directTheme("dark", "primaryColor");
+      }
+
+      .comment-info {
+        .category {
+          color: directTheme("dark", "primaryColor");
+        }
+      }
+    }
+  }
+}

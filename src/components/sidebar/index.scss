@@ -1,0 +1,212 @@
+
+@import '../../theme/theme.scss';
+
+@keyframes sidebarShow {
+  0% {  transform: translateX(-100%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes sidebarHide {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(0); }
+}
+
+.sidebar {
+  .sidebar-wrapper {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    z-index: 300;
+    pointer-events: none;
+  
+    .sidebar-block{
+      flex: 1;
+      display: none;
+      pointer-events: auto;
+
+      .logo {
+        position: absolute;
+        right: 36px;
+        bottom: 30px;
+        width: 100px;
+        opacity: 0.5;
+      }
+    }
+
+    .sidebar-content {
+      @include themify() {
+        background-color: themed('primaryBgColor');
+      }
+
+      display: flex;
+      flex-direction: row;
+      width: 344px;
+      margin-left: -350px;
+      box-shadow: 3px 0 6px rgba(0, 0, 0, 0.16);
+      flex-direction: column;
+      pointer-events: auto;
+      z-index: 10;
+
+      .profile {
+        display: flex;
+        flex-direction: row;
+        position: relative;
+        width: 100%;
+        height: 80px;
+        padding: 10px 40px;
+
+        .user-info {
+          display: flex;
+          flex-direction: row;
+          flex: 1;
+          min-width: 0;
+          flex-direction: column;
+          justify-content: center;
+          margin-left: 10px;
+
+          .name {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+            @include themify() {
+              color: themed('primaryColor');
+            }
+          }
+
+          .location {
+            font-size: 16px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            min-width: 0;
+            @include themify() {
+              color: themed('secondaryColor');
+            }
+          }
+        }
+
+        .underline {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          background: transparent;
+          width: 100%;
+          height: 2px;
+          background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+        }
+      }
+
+      .menu {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        padding: 35px 0;
+        overflow-y: auto;
+        justify-content: space-between;
+
+        .menu-group {
+          display: flex;
+          flex-direction: column;
+          justify-content: stretch;
+          padding: 0;
+
+          .menu-item {
+            position: relative;
+            font-size: 20px;
+            padding: 10px 10px 10px 40px;
+            // border-left: 9px solid transparent;
+            text-decoration: none;
+
+            .leftline {
+              position: absolute;
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 9px;
+              background-color: transparent;
+            }
+
+            li {
+              display: flex;
+              flex-direction: row;
+              align-items: center;
+
+              .menu-icon {
+                margin-right: 18px;
+  
+                @include themify() {
+                  fill: themed('secondaryColor');
+                }
+              }
+  
+              .menu-label {
+                margin-top: 2px;
+                
+                @include themify() {
+                  color: themed('secondaryColor');
+                }
+              }
+            }
+
+            &.active {
+              @include themify() {
+                background-color: themed('primaryBgActiveColor');
+              }
+
+              .leftline {
+                background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+              }
+
+              .menu-icon {
+                @include themify() {
+                  fill: themed('primaryColor');
+                }
+              }
+  
+              .menu-label {
+                @include themify() {
+                  color: themed('primaryColor');
+                }
+              }
+            }
+
+            &:hover {
+              @include themify() {
+                background-color: themed('primaryBgActiveColor');
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &.active {
+    .sidebar-block {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .sidebar-content {
+      margin-left: 0;
+      animation: sidebarShow 0.2s ease-out;
+    }
+  }
+
+  &.inactive {
+    .sidebar-block {
+      display: none;
+    }
+
+    .sidebar-content {
+      margin-left: -350px;
+      animation: sidebarHide 0.2s ease-out;
+    }
+  }
+}

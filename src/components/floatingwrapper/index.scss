@@ -1,0 +1,14 @@
+.floating-wrapper {
+  .floating {
+    position: fixed;
+    top: 120px;
+  }
+
+  &.left-content .floating {
+    width: 250px;
+  }
+
+  &.right-content .floating {
+    width: 200px;
+  }
+}

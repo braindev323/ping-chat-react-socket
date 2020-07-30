@@ -1,0 +1,47 @@
+@import "../../theme/theme.scss";
+.hover {
+  position: relative;
+  @include themify() {
+    fill: themed("primaryColor");
+  }
+  label svg {   
+    @include themify() {
+      fill: themed("primaryColor");
+    }
+  }
+
+  &:hover &__no-hover {
+    opacity: 0;
+  }
+
+  &:hover &__hover {
+    opacity: 1;
+  }
+
+  &__hover {
+    position: absolute;
+    height: 27px;
+    width: 100px;
+    top: 25px;
+    opacity: 0;
+    font-size: 12px;
+    @include themify() {
+      color: themed("primaryColor");
+    }
+    @include themify() {
+      background-color: themed("primaryBgActiveColor");
+    }   
+    box-shadow: 5px 5px 8px color('black');
+    padding: 5px;
+    text-align: center;
+    border-radius: 3px;
+    line-height: 17px;
+    z-index: 1;
+    font-family: Lato;
+
+  }
+
+  &__no-hover {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,180 @@
+$track-bg-color: rgba(255, 255, 255, 0.2);
+$track-highlight-color: rgba(255, 255, 255, 0.5);
+$thumb-color: #666;
+
+$thumb-radius: 0;
+$thumb-height: 0;
+$thumb-width: 0;
+$thumb-shadow-size: 0;
+$thumb-shadow-blur: 0;
+$thumb-shadow-color: #111;
+$thumb-border-width: 0;
+$thumb-border-color: #fff;
+
+$track-width: 100%;
+$track-height: 6px;
+$track-shadow-size: 1px;
+$track-shadow-blur: 3px;
+$track-shadow-color: rgba(0, 0, 0, 0.16);
+$track-border-width: 0;
+$track-border-color: #000;
+
+$track-radius: 5px;
+$contrast: 5%;
+
+@mixin shadow($shadow-size, $shadow-blur, $shadow-color) {
+  box-shadow: $shadow-size $shadow-size $shadow-blur $shadow-color, 0 0 $shadow-size lighten($shadow-color, $contrast);
+}
+
+@mixin track {
+  cursor: pointer;
+  height: $track-height;
+  transition: all .2s ease;
+  width: $track-width;
+}
+
+@mixin thumb {
+  @include shadow($thumb-shadow-size, $thumb-shadow-blur, $thumb-shadow-color);
+  background: $thumb-color;
+  border: $thumb-border-width solid $thumb-border-color;
+  border-radius: $thumb-radius;
+  cursor: pointer;
+  height: $thumb-height;
+  width: $thumb-width;
+}
+
+[type='range'],
+progress[value] {
+  position: absolute;
+  width: $track-width;
+  height: $track-height;
+  -webkit-appearance: none;
+}
+
+[type='range'] {
+  background-color: transparent;
+
+  &:focus {
+    outline: 0;
+
+    &::-webkit-slider-runnable-track {
+      background-color: transparent;
+    }
+
+    &::-ms-fill-lower {
+      background-color: transparent;
+    }
+
+    &::-ms-fill-upper {
+      background-color: transparent;
+    }
+  }
+
+  &::-webkit-slider-runnable-track {
+    @include track;
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: transparent;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-webkit-slider-thumb {
+    @include thumb;
+    -webkit-appearance: none;
+    margin-top: ((-$track-border-width * 2 + $track-height) / 2) - ($thumb-height / 2);
+  }
+
+  &::-moz-range-track {
+    @include track;
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: transparent;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius;
+  }
+
+  &::-moz-range-thumb {
+    @include thumb;
+  }
+
+  &::-ms-track {
+    @include track;
+    background: transparent;
+    border-color: transparent;
+    border-width: ($thumb-height / 2) 0;
+    color: transparent;
+  }
+
+  &::-ms-fill-lower {
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: lighten($track-bg-color, $contrast);
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius * 2;
+  }
+
+  &::-ms-fill-upper {
+    @include shadow($track-shadow-size, $track-shadow-blur, $track-shadow-color);
+    background: $track-bg-color;
+    border: $track-border-width solid $track-border-color;
+    border-radius: $track-radius * 2;
+  }
+
+  &::-ms-thumb {
+    @include thumb;
+    margin-top: 0;
+  }
+}
+
+
+progress.loadingbar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 100px;
+  
+  border: none;
+
+  /* For IE10 */
+  color: $track-bg-color;
+
+  &::-webkit-progress-bar {
+    background: transparent;
+    border-radius: 100px;
+  }
+
+  &::-webkit-progress-value {
+    background-color: $track-bg-color;
+    border-radius: 100px;
+  }
+
+  &::-moz-progress-bar {
+    background-color: $track-bg-color;
+    border-radius: 100px;
+  }
+}
+
+progress.playingbar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 100px;
+  
+  border: none;
+
+  /* For IE10 */
+  color: $track-bg-color;
+
+  &::-webkit-progress-bar {
+    background: $track-bg-color;
+    border-radius: 100px;
+  }
+
+  &::-webkit-progress-value {
+    background: linear-gradient(to left,#6EE2F5, #6454F0);
+    border-radius: 100px;
+  }
+
+  &::-moz-progress-bar {
+    background: linear-gradient(to left,#6EE2F5, #6454F0);
+    border-radius: 100px;
+  }
+}

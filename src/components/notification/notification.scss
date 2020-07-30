@@ -1,0 +1,44 @@
+@import '../../theme/theme.scss';
+
+.notification {
+  width: 20em;
+  margin-bottom: 8px !important;
+
+  .description {
+    font-size: 16px;
+    white-space: pre-wrap;
+  }
+
+  &.success {
+    @include themify() {
+      color: themed('successColor');
+      background-color: themed('successBgColor');
+      border-color: themed('successBorderColor');
+    }
+  }
+
+  &.danger {
+    @include themify() {
+      color: themed('dangerColor');
+      background-color: themed('dangerBgColor');
+      border-color: themed('dangerBorderColor');
+    }
+  }
+
+  &.warn {
+    @include themify() {
+      color: themed('warnColor');
+      background-color: themed('warnBgColor');
+      border-color: themed('warnBorderColor');
+    }
+  }
+
+  &.fade {
+    opacity: 0.01;
+    transition: 0.25s ease-in;
+
+    &.show {
+      opacity: 1;
+    }
+  }
+}

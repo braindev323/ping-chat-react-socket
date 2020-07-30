@@ -1,0 +1,30 @@
+@import '../../../theme/theme.scss';
+
+.post.post-article {
+  .post-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .cover {
+    width: 100%;
+    padding-top: 56.25%;
+    background-position: center; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 4px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-image: linear-gradient(to bottom, rgba(color('darkGrey'), 0.4), rgba(color('darkGrey'), 1));
+      opacity: 0.8;
+      border-radius: 4px;
+    }
+  }
+}

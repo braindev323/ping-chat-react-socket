@@ -1,0 +1,23 @@
+@import "../../theme/theme.scss";
+@import "./pings-bar.scss";
+
+.pings-page {
+  .layout-main {
+    // padding: 24px;
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+    .pings-bar {
+      width: 35%;
+    }
+    .pings-content {
+      width: 65%;
+      float: right;
+      h1 {
+        @include themify() {
+          color: themed("secondaryColor");
+        }
+      }
+    }
+  }
+}

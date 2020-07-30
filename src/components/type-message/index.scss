@@ -1,0 +1,126 @@
+@import "../../theme/theme.scss";
+
+.type-message {
+  width: 100%;
+  box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.16);
+  @include themify() {
+    background-color: themed('primaryBgColor');
+  }
+  position: absolute;
+  bottom: 0;
+  padding: 7px 15px;
+  width: 100%;
+  left: 0;
+  right: 0;
+
+  aside.emoji-picker-react {
+    width: 100% !important;
+    height: 228px !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: unset !important;
+    width: 106%!important;
+    margin-top: -7px!important;
+    margin-left: -15px!important;
+    @include themify() {
+      background-color: themed('primaryBgActiveColor')!important;
+    }
+    margin-bottom: 10px!important;
+    .emoji-group:before {
+      display: none !important;
+    }
+
+    .content-wrapper:before {
+      display: none !important;
+    }
+
+    .emoji-categories {
+      display: none !important;
+    }
+
+    input.emoji-search {
+      width: 300px !important;
+      height: 40px !important;
+      margin: 17px !important;
+      margin-right: 30px !important;
+      @include themify() {
+        background-color: themed('primaryBgColor')!important;
+      }
+      border: unset !important;
+      color: #BDBDBD !important;
+    }
+
+    .wrap-input {
+      text-align: right;
+    }
+  }
+
+  .actions {
+    margin-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    .file-upload{
+      line-height: 0;
+    }
+    .file-upload > input
+    {
+        display: none;
+    }   
+
+    svg {
+      cursor: pointer;
+
+      @include themify() {
+        fill: themed("secondaryColor");
+      }
+
+      margin-right: 10px;
+    }
+  }
+
+  .input-text {
+    width: 100%;
+    position: relative;
+
+    input {
+      border-radius: 4px;
+      width: 100%;
+      border: none;
+      padding: 15px;
+
+      @include themify() {
+        background: themed("inputboxBgColor");
+        color: themed("secondaryColor");
+      }
+
+      font-family: Lato;
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 20px;
+
+      &::placeholder {
+        @include themify() {
+          color: themed("secondaryColor");
+        }
+      }
+    }
+
+    svg {
+      position: absolute;
+      right: 15px;
+      cursor: pointer;
+      top: 15px;
+
+      @include themify() {
+        fill: themed("secondaryColor");
+      }
+    }
+
+    button {
+      background: none;
+      padding: 0px;
+      border: none;
+    }
+
+  }
+}

@@ -1,0 +1,106 @@
+@import '../../../theme/theme.scss';
+
+.post {
+  .main {
+    .contents {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      margin-right: 10px;
+    }
+
+    .top {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-end;
+      max-width: 100%;
+    
+      .title {
+        @include themify() {
+          color: themed('primaryColor');
+        }
+        font-size: 20px;
+        font-weight: bold;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        min-width: 0;
+      }
+
+      .post-time {
+        font-size: 14px;
+        margin-left: 4px;
+        white-space: nowrap;
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+      }
+    }
+
+    .bottom {
+      margin-bottom: 0;
+      
+      .description {
+        display: inline;
+        font-size: 14px;
+        padding: 0 0.5em;
+
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+      }
+
+      .link {
+        display: inline-flex;
+        flex-direction: row;
+        align-items: center;
+        font-size: 12px;
+        font-weight: bold;
+        color: color('blue');
+        margin-left: 4px;
+
+        .icon {
+          margin-left: 4px;
+          @include themify() {
+            fill: themed('primaryColor');
+          }
+        }
+      }
+    }
+
+    .comments {
+      display: flex;
+      flex-direction: row;
+
+      .text {
+        min-width: 30px;
+        margin-left: 8px;
+        font-size: 15px;
+        @include themify() {
+          color: themed('primaryColor');
+        }
+      }
+    }
+  }
+
+  &.has-cover {
+    .main {
+      .top .title {
+        color: directTheme('dark', 'primaryColor');
+      }
+
+      .description {
+        color: directTheme('dark', 'secondaryColor');
+      }
+
+      .comments .text {
+        color: directTheme('dark', 'primaryColor');
+      }
+
+      .bottom .link .icon {
+        fill: directTheme('dark', 'primaryColor');
+      }
+    }
+  }
+}

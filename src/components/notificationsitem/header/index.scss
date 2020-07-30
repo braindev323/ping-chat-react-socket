@@ -1,0 +1,97 @@
+@import "../../../theme/theme.scss";
+
+.post {
+  .post-header {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    .profile {
+      display: flex;
+      flex-direction: row;
+      cursor: pointer;
+
+      @include themify() {
+        color: themed("primaryColor");
+      }
+
+      .info {
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        min-width: 0;
+        flex-direction: column;
+        justify-content: center;
+        margin-left: 10px;
+
+        .name {
+          font-size: 14px;
+          font-weight: bold;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+        }
+
+        .username {
+          font-size: 14px;
+          line-height: 17px;
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          min-width: 0;
+          margin-top: 5px;
+          @include themify() {
+            color: themed("secondaryColor");
+          }
+        }
+      }
+    }
+
+    .post-info {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      @include themify() {
+        color: themed("secondaryColor");
+      }
+
+      .category {
+        @include themify() {
+          color: themed("secondaryColor");
+        }
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .date-time {
+        margin: 0 15px;
+      }
+      svg {
+        @include themify() {
+          fill: themed("secondaryColor");
+        }
+      }
+    }
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+
+  &.has-cover {
+    .post-header {
+      .profile {
+        color: directTheme("dark", "primaryColor");
+      }
+
+      .post-info {
+        .category {
+          color: directTheme("dark", "primaryColor");
+        }
+      }
+    }
+  }
+}

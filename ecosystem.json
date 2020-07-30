@@ -1,0 +1,11 @@
+{
+  "apps" : [{
+    "name"          : "Journile-FE",
+    "script"        : "./build",
+    "interpreter"   : "serve",
+    "args"          : "-s -l 3000",
+    "env_production" : {
+      "NODE_ENV"    : "production"
+    }
+  }]
+}

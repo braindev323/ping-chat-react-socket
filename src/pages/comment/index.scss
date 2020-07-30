@@ -1,0 +1,67 @@
+@import "../../theme/theme.scss";
+
+.hot-topic {
+  position: relative;
+  width: 100%;
+  height: 60px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-top: 8px;
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(color("darkGrey"), 0.4),
+      rgba(color("darkGrey"), 1)
+    );
+    opacity: 0.8;
+  }
+
+  .title {
+    position: absolute;
+    bottom: 2px;
+    left: 3px;
+    right: 10px;
+    font-size: 14px;
+    color: color("white");
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+.comment-count {
+  font-size: 14px;
+  @include themify() {
+    color: themed("secondaryColor");
+  }
+}
+
+.trending {
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    .symbol {
+      margin: 4px -4px 0 -4px;
+    }
+  }
+
+  .rate {
+    font-size: 15px;
+    padding-left: 8px;
+    @include themify() {
+      color: themed("secondaryColor");
+    }
+  }
+}

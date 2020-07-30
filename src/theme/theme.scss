@@ -1,0 +1,109 @@
+
+$themes: (
+  light: (
+    primaryBgColor: #FFFFFF,
+    primaryBgActiveColor: #EFF4F0,
+    primaryColor: #373C3F,
+    secondaryBgColor: #EFF4F0,
+    secondaryBgActiveColor: #FFFFFF,
+    secondaryBgHighlightColor: #F3F3F3,
+    secondaryColor: #A3A7A8,
+
+    successColor: #155724,
+    successBgColor: #D4EDDA,
+    successBorderColor: #C3E6CB,
+    dangerColor: #721C24,
+    dangerBgColor: #F8D7DA,
+    dangerBorderColor: #F5C6CB,
+    warnColor: #856404,
+    warnBgColor: #FFF3CD,
+    warnBorderColor: #FFEEBA,
+    
+    inputboxBgColor: #EFF4F0,
+    inputboxTextColor: #A3A7A8,
+    inputboxBorderColor: #868A8D,
+    receiveMsgBgColor: #95D8EB,
+    sendMsgBgColor: #8BD9C7,
+    
+    myMessageboxBgColor: #8BD9C77A,
+    othersMessageboxBgColor: #95D8EB7A,
+  ),
+  dark: (
+    primaryBgColor: #262C34,
+    primaryBgActiveColor: #20252C,
+    primaryColor: #FFFFFF,
+    secondaryBgColor: #262C34,
+    secondaryBgActiveColor: #20252C,
+    secondaryBgHighlightColor: #1B1F25,
+    secondaryColor: #BDBDBD,
+
+    successColor: #D4EDDA,
+    successBgColor: #155724,
+    successBorderColor: #045015,
+    dangerColor: #F8D7DA,
+    dangerBgColor: #721C24,
+    dangerBorderColor: #6F0B15,
+    warnColor: #FFF3CD,
+    warnBgColor: #856404,
+    warnBorderColor: #856917,
+    
+    inputboxBgColor: #1B1F25,
+    inputboxTextColor: #FFFFFF,
+    inputboxBorderColor: #FFFFFF,
+    receiveMsgBgColor: #95D8EB,
+    sendMsgBgColor: #8BD9C7,
+    
+    myMessageboxBgColor: #8BD9C77A,
+    othersMessageboxBgColor: #95D8EB7A,
+  ),
+);
+
+$colors : (
+  blueColor: #1592E5,
+  blackColor: #000000,
+  lightBlueColor: #3ECCFA,
+  greenColor: #00D331,
+  greyColor: #A9A9A9,
+  darkGreyColor: #262C34,
+  pinkColor: #F75995,
+  darkPinkColor: #8441A4,
+  redColor: #D60000,
+  whiteColor: #FFFFFF,
+  yellowColor: #F2C52E,
+  
+  primaryGradientStartColor: #6454F0,
+  primaryGradientEndColor: #6EE2F5,
+  secondaryGradientStartColor: #8441A4,
+  secondaryGradientEndColor: #FF5B94,
+  greyGradientStartColor: #6B6B6B,
+  greyGradientEndColor: #CFCFCF,
+);
+
+@mixin themify() {
+  @each $theme, $map in $themes {
+
+    .#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), $key);
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+
+      @content;
+      $theme-map: null !global;
+    }
+
+  }
+}
+
+@function directTheme($theme_key, $key) {
+  @return map-get(map-get($themes, $theme_key), $key);
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@function color($key) {
+  @return map-get($colors, '#{$key}Color');
+}

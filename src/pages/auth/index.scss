@@ -1,0 +1,281 @@
+@import '../../theme/theme.scss';
+
+.auth-modal {
+  pointer-events: auto;
+
+  &.show {
+    display: block;
+  }
+
+  .modal-outter {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: auto;
+  }
+
+  .modal-dialog {
+    display: flex;
+    flex-direction: row;
+    min-width: 800px;
+    max-width: 90%;
+    justify-content: center;
+  }
+
+  .modal-content {
+    @include themify() {
+      background-color: themed('secondaryBgActiveColor');
+    }
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 0;
+    padding: 60px 80px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.16);
+    pointer-events: auto;
+    width: 50vw;
+    max-width: 800px;
+
+    .content-wrapper {
+      width: 440px;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      img {
+        width: 200px;
+      }
+    }
+
+    .welcome {
+      font-size: 18px;
+      text-align: center;
+      @include themify() {
+        color: themed('primaryColor');
+      }
+    }
+
+    .form-group {
+      margin-top: 28px;
+      margin-bottom: 16px;
+
+      input[type="text"],
+      input[type="email"],
+      input[type="password"],
+      input[type="tel"] {
+        background-color: transparent;
+        font-size: 16px;
+        border-radius: 0;
+        border: 0;
+        border-bottom: 2px solid;
+        padding: 0 5px 12px;
+        @include themify() {
+          color: themed('primaryColor');
+          border-color: themed('primaryColor');
+        }
+        ::placeholder,
+        :-ms-input-placeholder,
+        ::-ms-input-placeholder {
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+
+      .checkbox {
+        svg {
+          @include themify() {
+            fill: themed('primaryColor');
+          }
+        }
+
+        label {
+          font-size: 16px;
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+
+      .forgot-password {
+        font-size: 16px;
+        cursor: pointer;
+        @include themify() {
+          color: themed('primaryColor');
+        }
+      }
+    }
+
+    .buttons {
+      width: 100%;
+    }
+
+    .text-or {
+      font-size: 16px;
+      text-align: center;
+      margin: 10px 0;
+      @include themify() {
+        color: themed('primaryColor');
+      }
+    }
+
+    .social-buttons {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin-top: 10px;
+
+      .icon-button {
+        margin: 0 10px;
+        cursor: pointer;
+        @include themify() {
+          fill: themed('primaryColor');
+        }
+      }
+    }
+
+    .terms {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      bottom: 30px;
+      text-align: center;
+
+      span {
+        cursor: pointer;
+        @include themify() {
+          color: themed('primaryColor');
+        }
+      }
+    }
+  }
+
+  .login-modal {
+    .content-wrapper {
+      padding: 60px 20px;
+
+      .welcome {
+        margin-top: 46px;
+        margin-bottom: 40px;
+      }
+
+      .form-group {
+        margin-top: 28px;
+        margin-bottom: 16px;
+      }
+
+      .buttons {
+        margin-top: 48px;
+        margin-bottom: 28px;
+      }
+    }
+  }
+
+  .signup-modal {
+    .mobile-suggest {
+      max-width: 650px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 70px;
+
+      .screenshot {
+        height: 80%;
+      }
+
+      .appstore-buttons {
+        margin-top: 35px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        img {
+          width: 48%;
+        }
+      }
+    }
+
+    .content-wrapper {
+      padding: 23px 20px;
+
+      .welcome {
+        margin-top: 28px;
+        margin-bottom: 20px;
+      }
+
+      .form-group {
+        margin-top: 20px;
+        margin-bottom: 10px;
+      }
+
+      .have-account {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        @include themify() {
+          color: themed('primaryColor');
+        }
+
+        .to-login {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+
+      .buttons {
+        margin-top: 6px;
+        margin-bottom: 30px;
+      }
+    }
+  }
+
+  .forgotpassword-modal {
+    .close-button {
+      position: absolute;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      top: 5px;
+      left: -56px;
+      width: 30px;
+      height: 30px;
+      border-radius: 15px;
+      cursor: pointer;
+      @include themify() {
+        background-color: themed('primaryBgColor');
+      }
+
+      .icon-close {
+        @include themify() {
+          fill: themed('primaryColor');
+        }
+      }
+    }
+
+    .content-wrapper {
+      padding: 150px 20px;
+
+      .welcome {
+        margin: 50px -30px 60px;
+      }
+
+      .buttons {
+        margin-top: 44px;
+        margin-bottom: 30px;
+
+        button {
+          padding: 14px 60px;
+        }
+      }
+    }
+  }
+}

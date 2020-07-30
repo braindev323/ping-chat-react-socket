@@ -1,0 +1,354 @@
+@import '~bootstrap/scss/bootstrap.scss';
+@import './theme/theme.scss';
+
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./resources/font/lato/Lato-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-weight: bold;
+  src: url('./resources/font/lato/Lato-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  src: url('./resources/font/lato/Lato-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Lato';
+  font-style: italic;
+  font-weight: bold;
+  src: url('./resources/font/lato/Lato-BoldItalic.ttf') format('truetype');
+}
+
+::-webkit-scrollbar-track
+{
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+  background-color: rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: rgba(0,0,0,0.1);
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  background-color: rgba(0,0,0,0.5);
+}
+
+body {
+  margin: 0;
+  font-family: 'Lato', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &.modal-open {
+    overflow: hidden;
+
+    &.clear-overflow #main {
+      .header .navbar-right, .content {
+        margin-right: 10px;
+      }
+    }
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active  {
+  transition: background-color 5000s ease-in-out 0s, color 5000s ease-in-out 0s;
+}
+
+#main {
+  position: relative;
+  @include themify() {
+    background-color: themed('secondaryBgColor');
+  }
+
+  &.blur {
+    > .content {
+      filter: blur(6px);
+    }
+    
+    &:before {
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#EFF4F0,0.4);
+      z-index: 110;
+    }
+
+    &.header-blur {
+      .header {
+        filter: blur(6px);
+      }
+    }
+  }
+  
+  > .content {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    min-height: 100vh;
+    position: relative;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding: 40px 15px 20px 15px !important;
+
+  .left-content {
+    width: 250px;
+    margin-right: 15px;
+  }
+  
+  .main-content {
+    max-width: 860px;
+    flex: 1;
+  }
+  
+  .right-content {
+    width: 200px;
+    margin-left: 15px;
+  }
+
+  .sub-header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 24px;
+
+    .icon {
+      margin-right: 6px;
+    }
+
+    .sub-header-title {
+      @include themify() {
+        color: themed('primaryColor');
+      }
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .left-content .item,
+  .right-content .item {
+    position: relative;
+    width: 100%;
+    @include themify() {
+      background-color: themed('secondaryBgActiveColor');
+    }
+    border-radius: 4px;
+    padding: 8px;
+    margin-top: 8px;
+    box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+  }
+
+  .list-units {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 24px;
+
+    .unit-group {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      .unit {
+        margin: 0 4px;
+      }
+    }
+
+    .unit {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      height: 24px;
+      width: 160px;
+
+      &.sort {
+        cursor: pointer;
+      }
+
+      .icon {
+        margin-right: 6px;
+        @include themify() {
+          fill: themed('secondaryColor');
+        }
+      }
+
+      .title {
+        @include themify() {
+          color: themed('secondaryColor');
+        }
+        font-size: 14px;
+        margin: 0;
+      }
+    }
+  }
+
+  @media (max-width: 1400px) {
+    .right-content {
+      display: none;
+    }
+  }
+
+  @media (max-width: 1170px) {
+    .left-content {
+      display: none;
+    }
+  }
+}
+
+.main-ratio {
+  position: relative;
+  padding-top: 56.25%;
+
+  img {
+    object-fit: cover;
+  }
+
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+.blue {
+  color: color('blue') !important;
+  fill: color('blue') !important;
+}
+
+.black {
+  color: color('black') !important;
+  fill: color('black') !important;
+}
+
+.lightBlue {
+  color: color('lightBlue') !important;
+  fill: color('lightBlue') !important;
+}
+
+.green {
+  color: color('green') !important;
+  fill: color('green') !important;
+}
+
+.pink {
+  color: color('pink') !important;
+  fill: color('pink') !important;
+}
+
+.darkPink {
+  color: color('darkPink') !important;
+  fill: color('darkPink') !important;
+}
+
+.white {
+  color: color('white') !important;
+  fill: color('white') !important;
+}
+
+.yellow {
+  color: color('yellow') !important;
+  fill: color('yellow') !important;
+}
+
+.btn-main {
+  min-width: 160px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 22px;
+  color: color('white');
+  padding: 9px 36px;
+  border: 0;
+  border-radius: 4px;
+  background-image: linear-gradient(45deg, color('primaryGradientStart'), color('primaryGradientEnd'));
+
+  &:hover {
+    color: color('white');
+  }
+}
+
+.btn-main-outline {
+  min-width: 160px;
+  font-size: 18px;
+  line-height: 22px;
+  @include themify() {
+    color: themed('secondaryColor');
+    border-color: themed('secondaryColor');
+  }
+  padding: 9px 36px;
+  border: 1 solid;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.not-found {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+  @include themify() {
+    color: themed('primaryColor');
+  }
+
+  > {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+#svg-gradient-primary {
+  --gradient-color-start: #{color('primaryGradientStart')};
+  --gradient-color-end: #{color('primaryGradientEnd')};
+}
+#svg-gradient-secondary {
+  --gradient-color-start: #{color('secondaryGradientStart')};
+  --gradient-color-end: #{color('secondaryGradientEnd')};
+}
+
+.icon-primary {
+  fill: url(#svg-gradient-primary) white;
+}
+
+.icon-secondary {
+  fill: url(#svg-gradient-secondary) white;
+}
+
+.show {
+  display: block;
+}
+
+.hide {
+  display: none;;
+}

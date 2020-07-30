@@ -1,0 +1,108 @@
+@import '../../../theme/theme.scss';
+
+.post-modal {
+  .share-modal {
+    pointer-events: auto;
+    position: absolute;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+
+    .wrapper {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 8px 16px;
+      border-radius: 4px;
+      z-index: 10;
+      @include themify() {
+        background-color: themed('secondaryBgActiveColor');
+      }
+
+      .icon {
+        margin-right: 4px;
+        @include themify() {
+          fill: themed('primaryColor');
+        }
+      }
+
+      .label {
+        font-size: 16px;
+        @include themify() {
+          color: themed('primaryColor');
+        }
+      }
+
+      .item {
+        display: flex;
+        flex-direction: row;
+        margin-left: 12px;
+        cursor: pointer;
+
+        .icon {
+          @include themify() {
+            fill: themed('secondaryColor');
+          }
+        }
+
+        .label {
+          @include themify() {
+            color: themed('secondaryColor');
+          }
+        }
+      }
+    }
+
+    .top-tag {
+      width: 18px;
+      height: 18px;
+      background-color: transparent;
+      @include themify() {
+        background-image: -webkit-linear-gradient(-45deg, transparent 50%, themed('secondaryBgActiveColor') 50%);
+      }
+    }
+
+    .bottom-tag {
+      width: 18px;
+      height: 18px;
+      background-color: transparent;
+      @include themify() {
+        background-image: -webkit-linear-gradient(45deg, transparent 50%, themed('secondaryBgActiveColor') 50%);
+      }
+    }
+
+    &.up {
+      bottom: 100%;
+
+      .wrapper, .wrapper:before {
+        border-bottom-left-radius: 0;
+      }
+
+      .top-tag {
+        display: none;
+      }
+
+      .bottom-tag {
+        display: block;
+      }
+    }
+
+    &.down {
+      top: 100%;
+
+      .wrapper, .wrapper:before {
+        border-top-left-radius: 0;
+      }
+
+      .top-tag {
+        display: block;
+      }
+
+      .bottom-tag {
+        display: none;
+      }
+    }
+  }
+}

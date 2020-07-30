@@ -1,0 +1,16 @@
+@import '../../theme/theme.scss';
+
+.avatar {
+  position: relative;
+  img {
+    display: block;
+    border-radius: 50%;
+  }
+
+  .icon-level {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    fill: color('white');
+  }
+}
