@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "134852b0-7b24-4660-85ef-65e8a39bb3c4",
+		"name": "Journile_chat",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "signin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  signin(input: {login: \"test001\", password: \"password\"}) {\r\n    user {\r\n      id\r\n      username\r\n      first_name\r\n      last_name\r\n      email\r\n      level\r\n      photo\r\n      cover_image\r\n    }\r\n    token\r\n    refresh_token\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{URL_Name}}/graphql",
+					"host": [
+						"{{URL_Name}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getMyContacts",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwMDMsInVzZXJuYW1lIjoidGVzdDAwMSIsImVtYWlsIjoiZ3BhdWxAZ21haWwuY29tIiwiZmlyc3RfbmFtZSI6IlBhdWwiLCJsYXN0X25hbWUiOiJHYXJkaW5lciIsInN0YXR1cyI6MSwiaWF0IjoxNTk0MTM4NTAxLCJleHAiOjE1OTQxNDAzMDF9.9S5E_BHSp5tDLNzygBjpnS51bc9Nawn2utUzyf09fdU"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "query {\r\n  getMyContacts {\r\n    id\r\n    account {\r\n        id\r\n        username\r\n        first_name\r\n        last_name\r\n        email\r\n        photo\r\n        level\r\n    }\r\n  }\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{URL_Name}}/graphql",
+					"host": [
+						"{{URL_Name}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "addContact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwMDEsInVzZXJuYW1lIjoic2l2ZXJ0MTUiLCJlbWFpbCI6InNpdmVydF9sYXJzZW4xNUB5YWhvby5jb20iLCJmaXJzdF9uYW1lIjoiU2l2ZXJ0IiwibGFzdF9uYW1lIjoiTGFyc2VuIiwic3RhdHVzIjoxLCJpYXQiOjE1NjIzNjE1MzgsImV4cCI6MTU2MjM2MzMzOH0.XYJto9ZPt9w8CRl4A8no1l4Uw_RZ-CvVYDZwO7_F3BY"
+					}
+				],
+				"body": {
+					"mode": "graphql",
+					"graphql": {
+						"query": "mutation {\r\n  addContact(username: \"test002\")\r\n}",
+						"variables": ""
+					}
+				},
+				"url": {
+					"raw": "{{URL_Name}}/graphql",
+					"host": [
+						"{{URL_Name}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTAwMDAsInVzZXJuYW1lIjoic2l2ZXJ0MTUiLCJlbWFpbCI6InNpdmVydF9sYXJzZW4xNUB5YWhvby5jb20iLCJmaXJzdF9uYW1lIjoiU2l2ZXJ0IiwibGFzdF9uYW1lIjoiTGFyc2VuIiwic3RhdHVzIjoxLCJpYXQiOjE1NjQwNjUxMzcsImV4cCI6MTU2NDA2NjkzN30.67p5yGdZ4UuWpVWO843GF5Vd4MYZ-uUpyN8kUfF2TCM"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "operations",
+							"value": "{\"query\": \"mutation($file: Upload!) { upload(file: $file) { url thumbUrl }}\"}",
+							"type": "text"
+						},
+						{
+							"key": "map",
+							"value": "{\"0\": [\"variables.file\"]}",
+							"type": "text"
+						},
+						{
+							"key": "0",
+							"type": "file",
+							"src": "/C:/Users/Rener/Downloads/ic_movie.png"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL_Name}}/graphql",
+					"host": [
+						"{{URL_Name}}"
+					],
+					"path": [
+						"graphql"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cea46f56-76cb-4862-ac64-effec40f4281",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "03e274ec-31d1-4bf2-9684-3ed1c3b4ab2e",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "b3589b51-8798-427e-8bda-6e4771bb3e41",
+			"key": "URL_Name",
+			"value": "http://44.224.136.239:3800"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
